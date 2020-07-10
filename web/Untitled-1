@@ -1,0 +1,56 @@
+curl -i 'https://storkadmin.prod.linkedin.com/stork-admin-api/storkAdminCampaign/ChanhTest' -X DELETE -H 'sec-fetch-mode: cors' -H 'origin: https://storkadmin.stg.linkedin.com' -H 'accept-encoding: gzip, deflate, br' -H 'x-li-dev-override-member-id: 1' -H 'accept-language: en-US,en;q=0.9' -H 'authorization: amlzaGE6MTU2NTI5NTg0NTEzODplZDFlNzc1OTBkNGMyNGE4OTFkOTA2YWRiNWRiNjViNDExZDJlODVmN2M2OWZjYTk3ZTM4Yjk5N2E2Njc1YjI0' -H 'x-requested-with: XMLHttpRequest' -H 'cookie: JSESSIONID=ajax:0213474706358825282; lang=v=2&lang=en-us; lang=v=2&lang=en-us; bcookie="v=2&d3e36d7a-2e04-46e3-8580-e09bb24e35b0"; lidc="b=OGST06:g=1329:u=1:i=1565053399:t=1565139799:s=AQHULzFkAsLI_YOqY7X2C4BWe_vMAGpF"' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36' -H 'content-type: application/json; charset=utf-8' -H 'accept: application/json, text/javascript, */*; q=0.01' -H 'csrf-token: ajax:0213474706358825282' -H 'x-restli-protocol-version: 2.0.0' -H 'authority: storkadmin.stg.linkedin.com' -H 'referer: https://storkadmin.stg.linkedin.com/campaigns' -H 'sec-fetch-site: same-origin' --compressed
+
+
+time curl 'https://comms-gateway.prod.linkedin.com/api/zoomMetaData?contentUrn=urn%3Ali%3Aactivity%3A6532146855395106816&endDate=2019-08-11&q=findMemberZoomMetaData&startDate=2019-07-20' -H 'X-Li-Dev-Override-Member-Id: 1' -H 'X-RestLi-Protocol-Version: 2.0.0' -H 'Csrf-Token: ajax:0213474706358825282' -H 'Authorization: amlzaGE6MTU2NTI5NTg0NTEzODplZDFlNzc1OTBkNGMyNGE4OTFkOTA2YWRiNWRiNjViNDExZDJlODVmN2M2OWZjYTk3ZTM4Yjk5N2E2Njc1YjI0' --cookie "JSESSIONID=ajax:0213474706358825282"
+
+
+{
+    "data": {
+      "activity": "{activityUrn}"
+    },
+    "projection": "(activity~(verb(commentary),object(com.linkedin.ucp.ObjectSummary(title)),actor(urn~member:isbMini(id, localizedFirstName, localizedLastName))))",
+    "strace": true
+}
+
+
+{
+  "activityUrn": "urn:li:activity:6029725326181933056",
+  "viewerId": 42520258
+}
+
+
+(select campaignName from AuditLogs where auditEventType = "CAMPAIGN_DEPLOYMENT_STATE_CHANGE" and createdTimestamp > '2019-05-09 00:00:00' and message like '%[PROD]%' group by campaignName) A
+inner join Campaigns
+on A.campaignName = Campaigns.campaignName
+
+select C.campaignName, D.corpUserUrn from(select A.campaignName from (select campaignName from AuditLogs where auditEventType = "CAMPAIGN_DEPLOYMENT_STATE_CHANGE" and createdTimestamp > '2019-05-09 00:00:00' and message like '%[PROD]%' group by campaignName) A inner join (select * from Campaigns where campaignType='EMAIL') B on A.campaignName = B.campaignName) C INNER JOIN (select * from CampaignAcls where campaignRole ='OWNER')as D where C.campaignName = D.campaignName;
+
+
+curli --dv-auth self --pretty-print -f ei-ltx1 "d2://linkedInEmployeeCommunicationChains/yYjPewc2SwmXT3UrCopL9AZT" -X PUT -H 'Accept:application/json' -H 'X-RestLi-Method:update' -H 'Content-Type:application/json' -H 'X-RestLi-Protocol-Version:2.0.0' --data '{
+    "recipient": "urn:li:member:316379891",
+    "createdAt": 1572048551840,
+    "channelStatuses": [],
+    "communicationType": "urn:li:communicationType:accountMentionedInTheNews_initial",
+    "communicationChainId": "yYjPewc2SwmXT3UrCopL9AZT"
+}'
+
+curli --pretty-print "http://localhost:9000/commsgatewayservice/linkedInEmployeeCommunicationChainUnifiedTrackingEvents" -X POST -H 'Accept:application/json' -H 'X-RestLi-Method:create' -H 'Content-Type:application/json' -H 'X-RestLi-Protocol-Version:2.0.0' --data '{
+    "service": "testService",
+    "time": 1572048551840,
+    "eventName": "CommunicationChainInitEvent",
+    "eventType": "INFO",
+    "communicationChain": "urn:li:communicationChain:ABCDETESTCHAIN"
+}'
+
+
+curli --pretty-print "http://localhost:9000/commsgatewayservice/linkedInEmployeeCommunicationChainUnifiedTrackingEvents" -X POST -H 'Accept:application/json' -H 'X-RestLi-Method:create' -H 'Content-Type:application/json' -H 'X-RestLi-Protocol-Version:2.0.0' --data '{
+     "service": "testService",
+     "time": 1572048551840,
+     "eventName": "CommunicationChainInitEvent",
+     "eventType": "INFO",
+     "communicationChain": "urn:li:communicationChain:ABCDETESTCHAIN"
+ }'
+ 
+ 
+ curli --dv-auth SELF --pretty-print "d2://storkCampaignSettings/urn%3Ali%3AstorkCampaign%3Ab2_anet_digest
+ 

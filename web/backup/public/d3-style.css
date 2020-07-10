@@ -1,0 +1,57 @@
+#container {
+	padding: 15px;
+	padding-right: 30px;
+}
+svg {
+font: 10px sans-serif;
+shape-rendering: crispEdges;
+overflow-y: visible !important;
+}
+
+#wrapper {
+	overflow-y: scroll!important;
+} 
+
+	rect.connected {
+		opacity: 0.5	
+	}
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+  }
+ 
+  path.domain {
+    stroke: none;
+  }
+ 
+  .y .tick line {
+    stroke: #ddd;
+  }
+
+  .link {
+		fill:none;
+		stroke: black;
+		stroke-width:3px;
+  }
+  .tippy rect {
+	  fill: white;
+	  stroke: black;
+	  stroke-width: 3px;
+	  opacity: 0.5
+  }
+
+h3 {
+	text-align: center
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 15px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

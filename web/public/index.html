@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PanViz Genome Viwer</title>
+  	<script defer src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script> 
+	<script defer src="d3.js"></script> 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="d3-style.css">
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	  
+    <style media="screen">
+	  html, body { height: 100%; }
+      body { background: white; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+	<div class="container-fluid">
+		<div class="row">
+			<h3 class="mx-auto">PanViz Genome Viewer</h3>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="input-group mb-3">
+					<a class='my-tool-tip' data-toggle="tooltip" data-placement="left" title="Tooltip here"> <!-- The class CANNOT be tooltip... -->
+						<i class='glyphicon glyphicon-info-sign'></i>
+					</a>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" multiple onchange="loadFiles()">
+						<label class="custom-file-label" for="inputGroupFile01">Add Tracks</label>
+					</div>
+          <button class="btn btn-outline-secondary" id="remove" data-toggle="modal" data-target="#removeModal">Remove Tracks</button>
+          <button class="btn btn-outline-secondary" id="clear">Clear</button>
+				</div>
+			</div>
+    
+
+      <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="removeModalLabel">RemoveFiles</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="remove-modal-body">
+            </div>
+          </div>
+        </div>
+      </div>
+
+			<div class="col">
+				<div class="input-group mb-3">
+				  <div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Select Chromosome</label>
+				  </div>
+				  <select class="custom-select" id="inputGroupSelect01">
+					<option selected>Choose...</option>
+				  </select>
+				</div>
+			</div>
+		</div>
+    <div class="row">
+      <div class="col">
+				<div class="input-group mb-2">
+          <button class="btn btn-outline-secondary" id="zoomIn">+</button>
+          <button class="btn btn-outline-secondary" id="zoomOut">-</button>
+          <button class="btn btn-outline-secondary" id="moveLeft">&lt;</button>
+          <button class="btn btn-outline-secondary" id="moveRight">&gt;</button>
+          <button class="btn btn-outline-secondary" id="reset">Reset</button>
+          <input type="text" class="form-control" id="windowLeft" placeholder="Window Start Position">
+          <input type="text" class="form-control" id="windowRight" placeholder="Window End Position">
+				</div>
+			</div>
+      <div class="col">
+          <div class="input-group mb-2">
+            <input type="text" class="form-control" id="search-input" aria-describedby="basic-addon3">
+            <div class="input-group-append">
+              <span class="input-group-text" id="search-button">Search Block</span>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center" id="loader-container">
+    </div>
+
+		<div class="row">
+			<div id="d3-diagram">
+          <svg id="tooltip-svg" class="plot" width="0" height="0"></svg>
+          <svg id="axis-svg" class="plot"></svg>
+				  <canvas class="plot"></canvas>
+			</div>
+		</div>
+	</div>
+       
+  </body>
+</html>

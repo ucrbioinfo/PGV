@@ -20,7 +20,7 @@ PGV requires the following python packages installed:
 
 ```
 #Install from github and install all dependencies listed above
-git clone https://github.com/qihualiang/PGV.git
+git clone https://github.com/ucrbioinfo/PGV.git
 ```
 
 ### Workflow

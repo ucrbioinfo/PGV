@@ -75,5 +75,5 @@ This will also generate three unaligned BED files for the input genomes to be vi
 If BED files are set to be aligned by `BEDaligned`, C-blocks will be gapped and aligned to their corresponding ordinates on consensus ordering. Here for the same block C9, it is at same locations for each genome as in consensus ordering.
 ![panviz\[fig4\]](docs/figs/arabidopsisPGVAligned.png)
 
-### [PGV Genome Viewer](http://pgv.cs.ucr.edu)
+### PGV Genome Viewer
 The ouput BED files from above sample are also available under `sample/outputBED`. Upload such files to [PGV Genome Viewer](http://pgv.cs.ucr.edu) to have an interative view of the above sample.

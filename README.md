@@ -29,7 +29,7 @@ The input to PGV is a set of n individual genomes for the same species, or a set
 
 First, PGV carries out a genome-wide multiple sequence alignment on all the inputs using [progressiveMauve](http://darlinglab.org/mauve/user-guide/progressivemauve.html). The output of progressiveMauve is used to convert genome sequences into block orderings consisted of C/D/U blocks. C-block (core) corresponds to an alignment that contains all n individuals; D-block (dispensable) corresponds to an alignment which contains at least two individuals and at most n−1. U-block (unique), is a block that belongs exclusively to one individual genome. After the conversion of each genome into blocks, PGV computes the consensus ordering for the C-blocks, which will constitute the “back-bone” of the pan-genome. 
 
-![pgv\[fig1\]](docs/figs/flowchart.jpg)
+![pgv\[fig1\]](docs/figs/flowchart.png)
 
 There are three different output formats of PGV:
   (i) dotplot comparing n genome orderings with consensus ordering

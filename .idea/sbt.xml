@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaSbtSettings">
+    <option name="customLauncherEnabled" value="true" />
+    <option name="customLauncherPath" value="$USER_HOME$/.sbt/liplay/activator-launch-1.3.2.jar" />
+    <option name="customVMPath" />
+    <option name="maximumHeapSize" value="2048" />
+    <option name="vmParameters" value="-Dplay.version=2.4 -DartifactoryUrl=http://dev-artifactory.corp.linkedin.com:8081/artifactory -Dsbt.boot.properties=/Users/jisha/.sbt/liplay/sbt.boot.properties -Dplay.home=/Users/jisha/.sbt/liplay/framework -Dsbt.parser.simple=true" />
+  </component>
+</project>

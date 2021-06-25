@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2748a3ac-bc95-4f37-b9d0-2e6663204a58" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/PGV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getBED.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/getChrmEnds.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/getConsensus.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/getTop2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/globalVariables.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linkNodes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge.old.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processXMFA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GCA_000001735.2_TAIR10.1_genomic.fna" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GCA_001651475.1_Ler_Assembly_genomic.fna" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/globalVariables.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/ouputBED/GCA_000001735.2_TAIR10.1_genomic.fna.bed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/ouputBED/GCA_001651475.1_Ler_Assembly_genomic.fna.bed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/ouputBED/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna.bed" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/output.xmfa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.firebaserc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Untitled-1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/backup/public/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/backup/public/d3-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/backup/public/d3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/backup/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/firebase.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/d3-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/d3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1uOHfE61x7VMpvqHb8b6zRfGNjs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="show.inlinked.gradle.project.popup" value="false" />
+    <property name="show.unlinked.gradle.project.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pgv" />
+    </key>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../Simba" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2748a3ac-bc95-4f37-b9d0-2e6663204a58" name="Default Changelist" comment="" />
+      <created>1624529816322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624529816322</updated>
+      <workItem from="1624529821359" duration="22141000" />
+    </task>
+    <servers>
+      <JIRA url="https://jira01.corp.linkedin.com:8443">
+        <username>jisha</username>
+      </JIRA>
+    </servers>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="371" y="223" key="SettingsEditor" timestamp="1624541902363">
+      <screen x="0" y="25" width="1680" height="927" />
+    </state>
+    <state x="371" y="223" key="SettingsEditor/0.25.1680.927@0.25.1680.927" timestamp="1624541902363" />
+    <state x="862" y="384" width="674" height="486" key="find.popup" timestamp="1624539159746">
+      <screen x="0" y="25" width="1680" height="927" />
+    </state>
+    <state x="862" y="384" width="674" height="486" key="find.popup/0.25.1680.927@0.25.1680.927" timestamp="1624539159746" />
+  </component>
+</project>

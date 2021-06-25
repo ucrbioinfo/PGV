@@ -6,21 +6,16 @@ PGV is reference-agnostic representation and visualization of pan-genomes. It is
 ## Using PGV
 
 ### Installation
-PGV requires the following python packages installed:
--   [alignment](https://pypi.org/project/alignment/)
+PGV dependencies are controlled by Conda (https://docs.conda.io/en/latest/)
 
--   [Biopython](https://biopython.org)
-
--   [NumPy](https://numpy.org)
-
--   [matplotlib](https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.html)
-
--   [recollecion](https://pypi.org/project/recollection/)
-
-
+Install from Conda:
 ```
-#Install from github and install all dependencies listed above
-git clone https://github.com/ucrbioinfo/PGV.git
+# create isolated Conda runtime environment
+conda create -n pgv-env
+# activate the Conda environment
+conda activate pgv-env
+# Install PGV
+conda install -c pgv-channel pgv
 ```
 
 ### Workflow
@@ -40,31 +35,39 @@ There are three different output formats of PGV:
 ### Usage
 [ProgressiveMauve](http://darlinglab.org/mauve/user-guide/progressivemauve.html) is used to generate multiple sequence alignments for all the genomes within the pan-genomes. 
 
-Edit `globalVariables.py` to indicate:
+Following input needs to be provided to run the PGV flow:
 -    `XMFAFile` Output file of ProgressiveMauve (.xmfa)
 -    `inputGenomes` Genome sequence files in pan-genomes 
--    `numOfChrms` Number of chromosomes/contigs to be considered
+-    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to seperate chromosomes, users should specifiy number of chromosomes to be considered when generating dotplot and BED files for visualization.
 -    `alnScoreThr` Threshold for alignment scores to determine potential misjoins
 -    `BEDaligned` Whether to align core blocks in accession with corresponding core blocks in consensus
--    `color` Colors used for different blocks in PGV Genome Viewer [optional]
-
-numOfChrms: ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to seperate chromosomes, users should specifiy number of chromosomes to be considered when generating dotplot and BED files for visualization.
 
 
 Run PGV pipeline as:
 ```
-python PGV.py
+pgvPlot
 ```
-
 
 Example:
-To run PGV on Arabidopsis pan-genomes with 4Mb sequences on chromosome three for three different accessions, move the globalVariables file:
+To run PGV on Arabidopsis pan-genomes with 4Mb sequences on chromosome three for three different accessions
+
 ```
-mv sample/globalVariables.py .
-```
-Then run PGV pipeline as:
-```
-python PGV.py
+pgvPlot
+Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_000001735.2_TAIR10.1_genomic.fna
+Enter another file? [Y/N]: Y
+Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_001651475.1_Ler_Assembly_genomic.fna
+Enter another file? [Y/N]: Y
+Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna
+Enter another file? [Y/N]: N
+Enter the file path of the output file of ProgressiveMauve: /Users/eva/PGV/pgv/sample/output.xmfa
+Please enter number of chromosomes to be considered: 1
+Use default alignment Threshold for alignment scores (0.7) ? [Y/N]: N
+Please enter alignment score threshold: 0.5
+Do you want to align core blocks in accession with corresponding core blocks in consensus [Y/N]? : N
+Finished processing multiple sequence alignments
+Built consensus sucessfully
+Generated output BED files. Please visit pgv.cs.ucr.edu to view these.
+Generated dotplots between each assembly and consensus sequence
 ```
 This will generate a dotplot comparing core blocks of each accessions to consensus ordering. 
 <img src="docs/figs/arabidopsisDotplot.png" width="600">

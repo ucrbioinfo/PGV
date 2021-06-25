@@ -1,12 +1,12 @@
 from collections import Counter
 
 ## return [1st, 2nd] or [1st]
-def getTop2(neighbors):
+def get_top2(neighbors):
 	res = []
 	top3 = Counter(neighbors).most_common(3)
 
 	## only one node in neighbors
-	if len(top3) == 1: 
+	if len(top3) == 1:
 		res = [top3[0][0]]
 	## only two nodes in neighbors
 	elif len(top3) == 2:

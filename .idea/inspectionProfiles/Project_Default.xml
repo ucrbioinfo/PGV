@@ -1,0 +1,20 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CheckConfig2" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CheckNonSingletonScope" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CheckOverrideClass" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CheckSingletonScope" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="MissingImportAnnotation" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PyClassicStyleClassInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+        </list>
+      </option>
+      <option name="ignoreOverriddenFunctions" value="false" />
+    </inspection_tool>
+  </profile>
+</component>

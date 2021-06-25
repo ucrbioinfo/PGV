@@ -1,0 +1,26 @@
+package:
+  name: pgv
+  version: 0.0
+
+source:
+  path: ../.
+
+build:
+  entry_points:
+    - pgvPlot = pgv.PGV:__main__
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - numpy
+    - biopython
+    - alignment
+    - matplotlib
+
+test:
+
+about:

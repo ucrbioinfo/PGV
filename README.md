@@ -41,29 +41,20 @@ Following input needs to be provided to run the PGV flow:
 -    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to seperate chromosomes, users should specifiy number of chromosomes to be considered when generating dotplot and BED files for visualization.
 -    `alnScoreThr` Threshold for alignment scores to determine potential misjoins
 -    `BEDaligned` Whether to align core blocks in accession with corresponding core blocks in consensus
-
+-    `color` Colors used for different blocks in PGV Genome Viewer [optional]
 
 Run PGV pipeline as:
 ```
-pgvPlot
+pgv
 ```
 
 Example:
 To run PGV on Arabidopsis pan-genomes with 4Mb sequences on chromosome three for three different accessions
 
 ```
-pgvPlot
-Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_000001735.2_TAIR10.1_genomic.fna
-Enter another file? [Y/N]: Y
-Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_001651475.1_Ler_Assembly_genomic.fna
-Enter another file? [Y/N]: Y
-Enter a genome file path: /Users/eva/PGV/pgv/sample/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna
-Enter another file? [Y/N]: N
-Enter the file path of the output file of ProgressiveMauve: /Users/eva/PGV/pgv/sample/output.xmfa
-Please enter number of chromosomes to be considered: 1
-Use default alignment Threshold for alignment scores (0.7) ? [Y/N]: N
-Please enter alignment score threshold: 0.5
-Do you want to align core blocks in accession with corresponding core blocks in consensus [Y/N]? : N
+pgv
+Please provide the file path of the PGV config file. See detailed explanation and an example of the config file on https://github.com/qihualiang/PanViz
+Please enter full file path: /Users/eva/PGV/pgv/sample/globalVariables
 Finished processing multiple sequence alignments
 Built consensus sucessfully
 Generated output BED files. Please visit pgv.cs.ucr.edu to view these.

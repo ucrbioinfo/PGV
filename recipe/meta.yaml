@@ -7,7 +7,7 @@ source:
 
 build:
   entry_points:
-    - pgvPlot = pgv.PGV:__main__
+    - pgv = pgv.PGV:pgv
 
 requirements:
   build:
@@ -20,6 +20,7 @@ requirements:
     - biopython
     - alignment
     - matplotlib
+    - configparser
 
 test:
 

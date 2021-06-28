@@ -2,11 +2,11 @@ import sys
 import re
 import numpy
 
-from .get_chrm_ends import get_chrm_ends
+from . import get_chrm_ends
 
 
 def process_xmfa(input_genomes, xmfa_file, num_of_chrms):
-    chrm_ends = get_chrm_ends(input_genomes, num_of_chrms)
+    chrm_ends = get_chrm_ends.get_chrm_ends(input_genomes, num_of_chrms)
 
     input_file = open(xmfa_file, "r")
 

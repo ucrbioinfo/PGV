@@ -1,5 +1,5 @@
-from .link_nodes import link_nodes
-from .merge import merge
+from . import link_nodes
+from . import merge
 
 
 def get_consensus(node_orders, chrm_end_c_nodes, input_genomes, aln_score_thr):
@@ -21,6 +21,6 @@ def get_consensus(node_orders, chrm_end_c_nodes, input_genomes, aln_score_thr):
                 neighbors = [c_node_order[i-1], c_node_order[i+1]]
                 unlink[node] = unlink[node]+neighbors if node in unlink else neighbors
 
-    linked = link_nodes(unlink)
-    consensus = merge(cnode_orders, linked, input_genomes, aln_score_thr)
+    linked = link_nodes.link_nodes(unlink)
+    consensus = merge.merge(cnode_orders, linked, input_genomes, aln_score_thr)
     return consensus

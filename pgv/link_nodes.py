@@ -1,4 +1,4 @@
-from .get_top2 import get_top2
+from . import get_top2
 
 
 def link_nodes(unlink):
@@ -6,7 +6,7 @@ def link_nodes(unlink):
     while bool(unlink):
         cur_node, neighbors = unlink.popitem()
         ## two most common neighbor nodes without ties
-        top2c = get_top2(neighbors)
+        top2c = get_top2.get_top2(neighbors)
         top2 = []
         for node in top2c:
             if node in unlink:
@@ -24,7 +24,7 @@ def link_nodes(unlink):
         while extend_left:
             left_node = cur_path[0]
             if left_node in unlink:
-                top2 = get_top2(unlink[left_node])
+                top2 = get_top2.get_top2(unlink[left_node])
                 unlink.pop(left_node)
             else:
                 top2 = []
@@ -54,7 +54,7 @@ def link_nodes(unlink):
         while extend_right:
             right_node = cur_path[-1]
             if right_node in unlink:
-                top2 = get_top2(unlink[right_node])
+                top2 = get_top2.get_top2(unlink[right_node])
                 unlink.pop(right_node)
             else:
                 top2 = []

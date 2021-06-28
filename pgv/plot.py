@@ -1,9 +1,9 @@
-from .global_variables import *
 import matplotlib.pyplot as plt
 
-def plot(input_genomes):
+
+def plot(input_genomes, out_bed_consensus):
 	input_gs = [G.split("/")[-1]+".bed" for G in input_genomes]
-	in1 = open(outBEDConsensus, "r")
+	in1 = open(out_bed_consensus, "r")
 
 	total_len = 0
 	chrm_ends = list()

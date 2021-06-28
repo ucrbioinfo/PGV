@@ -1,7 +1,7 @@
 [PGV_CONF]
-inputGenomes = ["/Users/jisha/PGV/pgv/sample/GCA_000001735.2_TAIR10.1_genomic.fna", "/Users/jisha/PGV/pgv/sample/GCA_001651475.1_Ler_Assembly_genomic.fna", "/Users/jisha/PGV/pgv/sample/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna"]
+inputGenomes = ["/Users/qihualiang/PGV/pgv/sample/GCA_000001735.2_TAIR10.1_genomic.fna", "/Users/qihualiang/PGV/pgv/sample/GCA_001651475.1_Ler_Assembly_genomic.fna", "/Users/qihualiang/PGV/pgv/sample/GCA_900660825.1_Ath.Ler-0.MPIPZ.v1.0_genomic.fna"]
 
-XMFAFile = "/Users/jisha/PGV/pgv/sample/output.xmfa"
+XMFAFile = "/Users/qihualiang/PGV/pgv/sample/output.xmfa"
 
 numOfGenomes = 3
 numOfChrms = 1

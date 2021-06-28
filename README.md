@@ -54,7 +54,7 @@ To run PGV on Arabidopsis pan-genomes with 4Mb sequences on chromosome three for
 ```
 pgv
 Please provide the file path of the PGV config file. See detailed explanation and an example of the config file on https://github.com/qihualiang/PanViz
-Please enter full file path: /Users/eva/PGV/pgv/sample/globalVariables
+Please enter full file path: /Users/PGV/pgv/sample/globalVariables
 Finished processing multiple sequence alignments
 Built consensus sucessfully
 Generated output BED files. Please visit pgv.cs.ucr.edu to view these.

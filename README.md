@@ -38,7 +38,7 @@ There are three different output formats of PGV:
 Following input needs to be provided to run the PGV flow:
 -    `XMFAFile` Output file of ProgressiveMauve (.xmfa)
 -    `inputGenomes` Genome sequence files in pan-genomes 
--    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to seperate chromosomes, users should specifiy number of chromosomes to be considered when generating dotplot and BED files for visualization.
+-    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to seperate chromosomes, users should specifiy number of chromosomes to be considered when generating dotplot and BED files for visualization. For example, if numOfChrms is set to 1 while in fact there are more than 1 chromosome in the genomes, alignments from all chromosomes will still be used to build consensus and visualized in dotplot/BED files for PGV genome viewer, but alignments from chromosome 2 and more will be shown as in contigs (not seperated in corresponding chromosomes). 
 -    `alnScoreThr` Threshold for alignment scores to determine potential misjoins
 -    `BEDaligned` Whether to align core blocks in accession with corresponding core blocks in consensus
 -    `color` Colors used for different blocks in PGV Genome Viewer [optional]

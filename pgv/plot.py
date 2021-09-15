@@ -38,26 +38,29 @@ def plot(input_genomes, out_bed_consensus):
 	y_starts = [x*total_len/20 for x in range(len(input_gs))]
 	ysi = 0
 	for inputG in input_gs:
-		i_nfile = open(inputG, "r")
+		in_file = open(inputG, "r")
 		query = list()
-		for line in i_nfile:
+		for line in in_file:
 			info = line.rstrip().split()
 			node = info[3]
 			if info[0].startswith("chr") and node.startswith("C"):
-				query.append(node)
+				query.append((node, info[5]))
 
 		y_start = y_starts[ysi]
 		ysi += 1
 		x_pairs_c = []
 		y_pairs_c = []
 
-		for node in query:
+		for node, direction in query:
 			if node in consensus:
 				y_end = y_start + lengths[node]
 				x_start = x_coords[node][0]
 				x_end = x_coords[node][1]
 				x_pairs_c.append([x_start, x_end])
-				y_pairs_c.append([y_start, y_end])
+				if direction == "+":
+					y_pairs_c.append([y_start, y_end])
+				else:
+					y_pairs_c.append([y_end, y_start])
 				y_start = y_end
 			else:
 				y_start += lengths[node]
@@ -76,4 +79,4 @@ def plot(input_genomes, out_bed_consensus):
 
 	plt.xticks([], [])
 	plt.yticks([], [])
-	plt.show()
+	plt.savefig('plot.png')

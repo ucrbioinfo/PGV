@@ -3,14 +3,9 @@ import os
 from configparser import ConfigParser
 
 
-def parse_config_file():
-    user_input = input("Please provide the file path of the PGV config file. See detailed explanation and an example"
-                       " of the config file on https://github.com/qihualiang/PanViz\n"
-                       "Please enter full file path: ")
-    while not os.path.exists(user_input):
-        user_input = input("file doesn't exist, please re-enter the file path: ")
+def parse_config_file(config_file_path):
     parser = ConfigParser()
-    parser.read(user_input)
+    parser.read(config_file_path)
 
     genome_files = str(parser.get("PGV_CONF", "inputGenomes")).replace('"', '').strip('[').strip(']').replace(' ', '').split(',')
     xmfa_file = str(parser.get("PGV_CONF", "XMFAFile")).replace('"', '')

@@ -12,7 +12,7 @@ def process_xmfa(input_genomes, xmfa_file, num_of_chrms):
 
     seq_delimiter = ">"
     block_delimiter = "="
-    regx_pattern = re.compile(">\\s+(\\d+):(\\d+)-(\\d+)\\s+[+-]\\s+(\\S+)")
+    regx_pattern = re.compile(">\\s+(\\d+):(\\d+)-(\\d+)\\s+([+-])\\s+\\S+")
 
 
     #### store XMFA info
@@ -28,7 +28,7 @@ def process_xmfa(input_genomes, xmfa_file, num_of_chrms):
         if line.startswith(seq_delimiter):
             seq = regx_pattern.match(line)
             if seq.group(3) != "0":
-                block_seqs[int(seq.group(1))-1] = (int(seq.group(2)), int(seq.group(3))) ## gID orignially [1,n], now with -1 [0,n-1]
+                block_seqs[int(seq.group(1))-1] = (int(seq.group(2)), int(seq.group(3)), seq.group(4)) ## gID orignially [1,n], now with -1 [0,n-1]
         elif line.startswith(block_delimiter):
             all_blocks.append(dict(block_seqs))
             if len(block_seqs) == 1:
@@ -53,15 +53,17 @@ def process_xmfa(input_genomes, xmfa_file, num_of_chrms):
         node_length = []
         for gID in range(len(input_genomes)):
             length = 0 ## node does not exist in gID
+            direction = "+"
             if gID in node_info: ## get start location
                 start = node_info[gID][0]
                 all_starts[gID].append(start)
                 start2node[gID][start] = node
                 length = node_info[gID][1] - node_info[gID][0] +1
-            node_length.append(length)
+                direction = node_info[gID][2]
+            node_length.append((length, direction))
         #remove 0s for unexisting block on genome(s) for D/U
-        tmp_length = [x for x in node_length if x != 0]
-        node_length += [numpy.average(tmp_length), numpy.std(tmp_length)]
+        tmp_length = [x[0] for x in node_length if x[0] != 0]
+        node_length += [(numpy.average(tmp_length),), (numpy.std(tmp_length),)]
         node_lengths[node] = node_length
 
 
@@ -83,7 +85,7 @@ def process_xmfa(input_genomes, xmfa_file, num_of_chrms):
         for start in start_order:
             curr_node = start2node[gID][start]
             node_order.append(curr_node)
-            if start > chrm_ends[gID][curr_chrm_i]:
+            if start > chrm_ends[gID][curr_chrm_i] and curr_chrm_i < len(chrm_ends[gID]) -1:
                 chrm_end_node.append(prev_node)
                 chrm_end_c_node.append(prev_c_node)
                 curr_chrm_i += 1

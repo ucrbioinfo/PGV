@@ -67,7 +67,7 @@ def get_bed(consensus, node_orders, node_lengths, chrm_end_nodes, chrm_end_c_nod
                 lengths_between_interval = 0
                 prev_node = node
             else:
-                lengths_between_interval += node_lengths[node][i] + gap
+                lengths_between_interval += node_lengths[node][i][0] + gap
 
     #### output consensus BED
     prev_c = dict()
@@ -85,7 +85,8 @@ def get_bed(consensus, node_orders, node_lengths, chrm_end_nodes, chrm_end_c_nod
         curr_node = consensus_whead[i]
         if curr_node.startswith("C"):
             start_pos += intervals[(prev, curr_node)]
-            endPos = start_pos + max(node_lengths[curr_node])
+            #endPos = start_pos + max(node_lengths[curr_node])
+            endPos = start_pos + max([x[0] for x in node_lengths[curr_node]])
             if chrm_count <= num_of_chrms:
                 chrmName = "chr" + str(chrm_count)
             else:
@@ -118,28 +119,31 @@ def get_bed(consensus, node_orders, node_lengths, chrm_end_nodes, chrm_end_c_nod
             if curr_node.startswith("C"):
                 if bed_aligned and chrm_count == c_starts[curr_node][0] and start_pos < c_starts[curr_node][1]:
                     start_pos = c_starts[curr_node][1]
-                endPos = start_pos + node_lengths[curr_node][i]
+                endPos = start_pos + node_lengths[curr_node][i][0]
                 Cindex = all_c_nodes[i].index(curr_node)
+                direction = node_lengths[curr_node][i][1]
                 if neighbor_cs_w_direction[curr_node] == [all_c_nodes[i][Cindex - 1],
                                                           all_c_nodes[i][Cindex + 1]]:  ## same prev and next
-                    print(chrmName, start_pos, endPos, curr_node, 1, "+", start_pos, endPos, color_c, sep='\t',
+                    print(chrmName, start_pos, endPos, curr_node, 1, direction, start_pos, endPos, color_c, sep='\t',
                           file=outFile)
                 elif neighbor_cs_no_direction[curr_node] == set(
                         [all_c_nodes[i][Cindex - 1], all_c_nodes[i][Cindex + 1]]):  ## rev
                     print(chrmName, start_pos, endPos, curr_node, 1, "-", start_pos, endPos, color_crev, sep='\t',
                           file=outFile)
                 else:  ## translocation
-                    print(chrmName, start_pos, endPos, curr_node, 1, "+", start_pos, endPos, color_ctrans, sep='\t',
+                    print(chrmName, start_pos, endPos, curr_node, 1, direction, start_pos, endPos, color_ctrans, sep='\t',
                           file=outFile)
                 start_pos = endPos + 1
 
             elif curr_node.startswith("D"):
-                endPos = start_pos + node_lengths[curr_node][i]
-                print(chrmName, start_pos, endPos, curr_node, 1, "+", start_pos, endPos, color_p, sep='\t', file=outFile)
+                endPos = start_pos + node_lengths[curr_node][i][0]
+                direction = node_lengths[curr_node][i][1]
+                print(chrmName, start_pos, endPos, curr_node, 1, direction, start_pos, endPos, color_p, sep='\t', file=outFile)
                 start_pos = endPos + 1
             elif curr_node.startswith("U"):
-                endPos = start_pos + node_lengths[curr_node][i]
-                print(chrmName, start_pos, endPos, curr_node, 1, "+", start_pos, endPos, color_u, sep='\t', file=outFile)
+                endPos = start_pos + node_lengths[curr_node][i][0]
+                direction = node_lengths[curr_node][i][1]
+                print(chrmName, start_pos, endPos, curr_node, 1, direction, start_pos, endPos, color_u, sep='\t', file=outFile)
                 start_pos = endPos + 1
             else:  ## dummy/Tail
                 chrm_count += 1

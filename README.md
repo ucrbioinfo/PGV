@@ -45,7 +45,7 @@ Following input needs to be provided to run the PGV flow:
 
 Run PGV pipeline as:
 ```
-pgv
+pgv -c config_file
 ```
 
 Example:

@@ -38,10 +38,14 @@ There are three different output formats of PGV:
 Following input needs to be provided to run the PGV flow:
 -    `XMFAFile` Output file of ProgressiveMauve (.xmfa)
 -    `inputGenomes` Genome sequence files in pan-genomes 
--    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. In order to separate chromosomes, users should specify number of chromosomes to be considered when generating dotplot and BED files for visualization. For example, if numOfChrms is set to 1 while in fact there are more than 1 chromosome in the genomes, alignments from all chromosomes will still be used to build consensus and visualized in dotplot/BED files for PGV genome viewer, but alignments from chromosome 2 and following will be shown as in contigs (not separated in corresponding chromosomes). 
 -    `alnScoreThr` Threshold for alignment scores to determine potential misjoins
 -    `BEDaligned` Whether to align core blocks in accession with corresponding core blocks in consensus
 -    `color` Colors used for different blocks in PGV Genome Viewer [optional]
+-    `numOfChrms` ProgressiveMauve concatenates all chromosomes/contigs of one genome into one long sequence. The value of numOfChrms allows our tool to “undo” the concatenation of all input sequences carried out by progressiveMauve, that is, it allows our tool to split chromosomes (or contigs or scaffolds) for the dotplot and BED files generation. 
+
+If the user sets numOfChrms to a number smaller than the actual number of chromosomes, only the first numOfChrms chromosomes will be split for the dotplot and in the BED files. For instance if the user sets numOfChrms=2 when the number of chromosomes is 5, PGV will split the first two chromosomes and store their results as “chr1” and “chr2”. The sequence for chr3, chr4, and chr5 will stay concatenated together, and all the block orderings will be displayed as if they were one long sequence named “contig” in dotplot/bed files.
+
+Even if numOfChrms is set “incorrectly”, all data included in input FASTA files will be processed by progressiveMauve and PGV to identify different types of blocks and their consensus ordering.
 
 Run PGV pipeline as:
 ```
